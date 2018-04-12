@@ -13,7 +13,9 @@
 ```
 
 # Deploy:
-> python CoinController.py
+```Bash
+   python CoinController.py
+```
 
 #Note: Need to change config.ini before run it.
 ------
