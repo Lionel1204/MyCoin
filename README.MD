@@ -5,3 +5,11 @@
 -BlockUtils: Utils
 -CoinController: controller layer, processing all of the request and route
 -Config.ini: configuration of the block chain
+
+#Dependency:
+pip install flask
+pip install requests
+
+#Deploy:
+> python CoinController.py
+Note: Need to change config.ini
