@@ -23,7 +23,12 @@ def proofOfWork(lastProof):
   return incrementor
 
 def getLocalBlockChain():
-  return BCH.getLocalBlockChain()
+  localChain = BCH.getLocalBlockChain()
+  if len(localChain) == 0:
+    BCH.setLocalBlockChain([createGenesisBlock()])
+    localChain = BCH.getLocalBlockChain()
+
+  return localChain
 
 def getCurrentBlockChain():
   consensus()
@@ -41,12 +46,13 @@ def getMinerId():
 def consensus():
   otherChains = getOtherChains()
   longestChain = BCH.getLocalBlockChain()
-  for chain in otherChains:
-    if len(longestChain) < len(chain):
-      longestChain = chain
 
   if len(longestChain) == 0:
     longestChain = [createGenesisBlock()]
+
+  for chain in otherChains:
+    if len(longestChain) < len(chain):
+      longestChain = chain
 
   BCH.setLocalBlockChain(longestChain)
 
