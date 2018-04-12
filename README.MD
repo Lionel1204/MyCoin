@@ -17,5 +17,5 @@
    python CoinController.py
 ```
 
-#Note: Need to change config.ini before run it.
+### Note: Need to change config.ini before run it.
 ------
