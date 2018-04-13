@@ -6,7 +6,6 @@ from Model.BlockData import BlockData
 import Helper.BlockChainHelper as BCH
 import Helper.TransactionHelper as TH
 import Helper.NetHelper as NH
-import json
 
 #Need to manually construct the first block with this function
 #Index=0, pre_hash=0

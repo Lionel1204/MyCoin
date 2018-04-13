@@ -10,6 +10,7 @@
 ```Bash
    pip install flask
    pip install requests
+   pip install flask_marshmallow
 ```
 
 # Deploy:

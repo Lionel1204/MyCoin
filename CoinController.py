@@ -5,7 +5,6 @@ import BlockUtils
 from Model.Transaction import Transaction
 from Model.BlockData import BlockData
 from Model.BlockSchema import BlockSchema
-from Model.TransactionSchema import TransactionSchema
 
 node = Flask(__name__)
 ma = Marshmallow(node)
