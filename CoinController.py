@@ -43,4 +43,4 @@ def getBlockChain():
   blockChain = BlockUtils.getLocalBlockChain()
   return BlockSchema(many=True).dumps(blockChain).data
 
-node.run()
+node.run(host='0.0.0.0')

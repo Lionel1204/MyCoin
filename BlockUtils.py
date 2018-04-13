@@ -5,6 +5,7 @@ from Model.BlockData import BlockData
 import Helper.BlockChainHelper as BCH
 import Helper.TransactionHelper as TH
 import Helper.NetHelper as NH
+import json
 
 #Need to manually construct the first block with this function
 #Index=0, pre_hash=0
@@ -27,8 +28,10 @@ def getLocalBlockChain():
   if len(localChain) == 0:
     BCH.setLocalBlockChain([createGenesisBlock()])
     localChain = BCH.getLocalBlockChain()
-
   return localChain
+
+def setLocalBlockChain(chain):
+  BCH.setLocalBlockChain(chain)
 
 def getCurrentBlockChain():
   consensus()
@@ -64,5 +67,5 @@ def getOtherChains():
   blockChains = []
   for url in nodeUrls:
     blocks = NH.getBlocks(url)
-    blockChains.append(blocks)
-  return []
+    blockChains.append(json.loads(blocks))
+  return blockChains
