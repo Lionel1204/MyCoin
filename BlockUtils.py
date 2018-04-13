@@ -1,6 +1,7 @@
 from datetime import datetime
 from ConfigParser import ConfigParser
 from Model.Block import Block
+from Model.BlockSchema import BlockSchema
 from Model.BlockData import BlockData
 import Helper.BlockChainHelper as BCH
 import Helper.TransactionHelper as TH
@@ -65,7 +66,8 @@ def getOtherChains():
   urlStr = cp.get('servers', 'server.list')
   nodeUrls = urlStr.split(';')
   blockChains = []
+  blockSchema = BlockSchema(many=True)
   for url in nodeUrls:
     blocks = NH.getBlocks(url)
-    blockChains.append(json.loads(blocks))
+    blockChains.append(blockSchema.loads(blocks).data)
   return blockChains
