@@ -6,6 +6,7 @@ from Model.BlockData import BlockData
 import Helper.BlockChainHelper as BCH
 import Helper.TransactionHelper as TH
 import Helper.NetHelper as NH
+import Helper.POWHelper as POWH
 
 #Need to manually construct the first block with this function
 #Index=0, pre_hash=0
@@ -18,10 +19,7 @@ def createNextBlock(preBlock, data):
 
 # If the block number is divided by 9, The coin is legal
 def proofOfWork(lastProof):
-  incrementor = lastProof + 1
-  while not (incrementor % 9 == 0 and incrementor % lastProof == 0):
-    incrementor += 1
-  return incrementor
+  return POWH.proofOfWork(lastProof)
 
 def getLocalBlockChain():
   localChain = BCH.getLocalBlockChain()
